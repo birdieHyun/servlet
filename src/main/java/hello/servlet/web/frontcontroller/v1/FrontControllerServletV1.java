@@ -41,9 +41,7 @@ public class FrontControllerServletV1 extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND); // 페이지가 없으면 404
             return;
         }
-
         // null 이 아니라 잘 호출되었다면 controller. process 진행
         controller.process(request, response);
-
     }
 }
