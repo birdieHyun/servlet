@@ -1,8 +1,9 @@
 package hello.servlet.web.frontcontroller.v5.adapter;
 
-import hello.servlet.web.frontcontroller.ModelView;
+import hello.servlet.web.frontcontroller.ModelAndView;
 import hello.servlet.web.frontcontroller.v4.ControllerV4;
 import hello.servlet.web.frontcontroller.v5.MyHandlerAdapter;
+import hello.servlet.web.frontcontroller.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
     }
 
     @Override
-    public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
+    public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         // 타입 체크를 support 에서 해주었기 때문에 handler 를 Controller 로 캐스팅 해준다.
         ControllerV4 controller = (ControllerV4) handler;
 
@@ -29,7 +30,7 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
         String viewName = controller.process(paramMap, model);
 
         // model 과 view 를 세팅해준다.
-        ModelView mv = new ModelView(viewName);
+        ModelAndView mv = new ModelAndView(viewName);
         mv.setModel(model);
 
         return mv;

@@ -1,6 +1,6 @@
 package hello.servlet.web.frontcontroller.v3;
 
-import hello.servlet.web.frontcontroller.ModelView;
+import hello.servlet.web.frontcontroller.ModelAndView;
 import hello.servlet.web.frontcontroller.MyView;
 import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
 import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
@@ -39,7 +39,7 @@ public class FrontControllerServletV3 extends HttpServlet {
 
         Map<String, String> paramMap = createParamMap(request);
 
-        ModelView mv = controller.process(paramMap);
+        ModelAndView mv = controller.process(paramMap);
 
         // 이제 논리 이름을 물리 이름으로  바꿔야 한다.
         // 지금은 논리 이름만 넘어갔기 때문이다.
